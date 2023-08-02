@@ -36,7 +36,7 @@ export function updateDisplayPicture(token, formData) {
       toast.success('Display Picture Updated Successfully');
       dispatch(setUser(response.data.data));
     } catch (error) {
-      console.log('UPDATE_DISPLAY_PICTURE_API API ERROR............', error)
+      console.log('UPDATE_DISPLAY_PICTURE_API API ERROR............', error);
       toast.error('Could Not Update Display Picture');
     }
     toast.dismiss(toastId);
@@ -49,7 +49,7 @@ export function updateProfile(token, formData) {
     try {
       const response = await apiConnector('PUT', UPDATE_PROFILE_API, formData, {
         Authorization: `Bearer ${token}`,
-      })
+      });
       console.log('UPDATE_PROFILE_API API RESPONSE............', response);
 
       if (!response.data.success) {
@@ -57,7 +57,7 @@ export function updateProfile(token, formData) {
       }
       const userImage = response.data.updatedUserDetails.image
         ? response.data.updatedUserDetails.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`;
       dispatch(
         setUser({ ...response.data.updatedUserDetails, image: userImage })
       );

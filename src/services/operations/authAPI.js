@@ -23,7 +23,7 @@ export function sendOtp(email, navigate) {
         email,
         checkUserPresent: true,
       });
-      console.log('SENDOTP API RESPONSE............', response)
+      console.log('SENDOTP API RESPONSE............', response);
 
       console.log(response.data.success);
 
@@ -80,7 +80,7 @@ export function signUp(
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
-  }
+  };
 }
 
 export function login(email, password, navigate) {
@@ -103,7 +103,7 @@ export function login(email, password, navigate) {
       dispatch(setToken(response.data.token));
       const userImage = response.data?.user?.image
         ? response.data.user.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
       dispatch(setUser({ ...response.data.user, image: userImage }));
       localStorage.setItem('token', JSON.stringify(response.data.token));
       navigate('/dashboard/my-profile');
@@ -151,7 +151,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         password,
         confirmPassword,
         token,
-      })
+      });
 
       console.log('RESETPASSWORD RESPONSE............', response);
 
