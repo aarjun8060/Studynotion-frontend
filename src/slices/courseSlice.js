@@ -37,6 +37,6 @@ export const {
   setEditCourse,
   setPaymentLoading,
   resetCourseState,
-} = courseSlice.actions
+} = courseSlice.actions;
 
-export default courseSlice.reducer
+export default courseSlice.reducer;
