@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   courseSectionData: [],
   courseEntireData: [],
   completedLectures: [],
   totalNoOfLectures: 0,
-}
+};
 
 const viewCourseSlice = createSlice({
-  name: "viewCourse",
+  name: 'viewCourse',
   initialState,
   reducers: {
     setCourseSectionData: (state, action) => {
