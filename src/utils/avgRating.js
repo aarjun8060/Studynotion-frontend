@@ -10,4 +10,4 @@ export default function GetAvgRating(ratingArr) {
     Math.round((totalReviewCount / ratingArr?.length) * multiplier) / multiplier;
 
   return avgReviewCount;
-};
+}

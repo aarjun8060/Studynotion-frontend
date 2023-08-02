@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export default function RequirementsField({
   name,
@@ -7,10 +7,10 @@ export default function RequirementsField({
   register,
   setValue,
   errors,
-  getValues,
+  
 }) {
   const { editCourse, course } = useSelector((state) => state.course)
-  const [requirement, setRequirement] = useState("")
+  const [requirement, setRequirement] = useState('')
   const [requirementsList, setRequirementsList] = useState([])
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function RequirementsField({
   const handleAddRequirement = () => {
     if (requirement) {
       setRequirementsList([...requirementsList, requirement])
-      setRequirement("")
+      setRequirement('')
     }
   }
 
@@ -40,34 +40,34 @@ export default function RequirementsField({
   }
 
   return (
-    <div className="flex flex-col space-y-2">
-      <label className="text-sm text-richblack-5" htmlFor={name}>
-        {label} <sup className="text-pink-200">*</sup>
+    <div className='flex flex-col space-y-2'>
+      <label className='text-sm text-richblack-5' htmlFor={name}>
+        {label} <sup className='text-pink-200'>*</sup>
       </label>
-      <div className="flex flex-col items-start space-y-2">
+      <div className='flex flex-col items-start space-y-2'>
         <input
-          type="text"
+          type='text'
           id={name}
           value={requirement}
           onChange={(e) => setRequirement(e.target.value)}
-          className="form-style w-full"
+          className='form-style w-full'
         />
         <button
-          type="button"
+          type='button'
           onClick={handleAddRequirement}
-          className="font-semibold text-yellow-50"
+          className='font-semibold text-yellow-50'
         >
           Add
         </button>
       </div>
       {requirementsList.length > 0 && (
-        <ul className="mt-2 list-inside list-disc">
+        <ul className='mt-2 list-inside list-disc'>
           {requirementsList.map((requirement, index) => (
-            <li key={index} className="flex items-center text-richblack-5">
+            <li key={index} className='flex items-center text-richblack-5'>
               <span>{requirement}</span>
               <button
-                type="button"
-                className="ml-2 text-xs text-pure-greys-300 "
+                type='button'
+                className='ml-2 text-xs text-pure-greys-300 '
                 onClick={() => handleRemoveRequirement(index)}
               >
                 clear
@@ -77,7 +77,7 @@ export default function RequirementsField({
         </ul>
       )}
       {errors[name] && (
-        <span className="ml-2 text-xs tracking-wide text-pink-200">
+        <span className='ml-2 text-xs tracking-wide text-pink-200'>
           {label} is required
         </span>
       )}

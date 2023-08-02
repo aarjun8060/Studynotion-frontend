@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react'
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
-import "swiper/css"
-import "swiper/css/free-mode"
-import "swiper/css/pagination"
-// import "../../.."
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/pagination'
+// import '../../..'
 // Import required modules
-import { FreeMode, Pagination } from "swiper/modules"
+import { FreeMode, Pagination } from 'swiper/modules'
 
-// import { getAllCourses } from "../../services/operations/courseDetailsAPI"
-import Course_Card from "./Course_Card"
+// import { getAllCourses } from '../../services/operations/courseDetailsAPI'
+import Course_Card from './Course_Card'
 
 function Course_Slider({ Courses }) {
   return (
@@ -27,16 +27,16 @@ function Course_Slider({ Courses }) {
               slidesPerView: 3,
             },
           }}
-          className="max-h-[30rem]"
+          className='max-h-[30rem]'
         >
           {Courses?.map((course, i) => (
             <SwiperSlide key={i}>
-              <Course_Card course={course} Height={"h-[250px]"} />
+              <Course_Card course={course} Height={'h-[250px]'} />
             </SwiperSlide>
           ))}
         </Swiper>
       ) : (
-        <p className="text-xl text-richblack-5">No Course Found</p>
+        <p className='text-xl text-richblack-5'>No Course Found</p>
       )}
     </>
   )

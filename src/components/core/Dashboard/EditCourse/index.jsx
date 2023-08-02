@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import {
   // fetchCourseDetails,
   getFullDetailsOfCourse,
-} from "../../../../services/operations/courseDetailsAPI"
-import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
-import RenderSteps from "../AddCourse/RenderSteps"
+} from '../../../../services/operations/courseDetailsAPI'
+import { setCourse, setEditCourse } from '../../../../slices/courseSlice'
+import RenderSteps from '../AddCourse/RenderSteps'
 
 export default function EditCourse() {
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ export default function EditCourse() {
   const { token } = useSelector((state) => state.auth)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       setLoading(true)
       const result = await getFullDetailsOfCourse(courseId, token)
       if (result?.courseDetails) {
@@ -31,22 +31,22 @@ export default function EditCourse() {
 
   if (loading) {
     return (
-      <div className="grid flex-1 place-items-center">
-        <div className="spinner"></div>
+      <div className='grid flex-1 place-items-center'>
+        <div className='spinner'></div>
       </div>
     )
   }
 
   return (
     <div>
-      <h1 className="mb-14 text-3xl font-medium text-richblack-5">
+      <h1 className='mb-14 text-3xl font-medium text-richblack-5'>
         Edit Course
       </h1>
-      <div className="mx-auto max-w-[600px]">
+      <div className='mx-auto max-w-[600px]'>
         {course ? (
           <RenderSteps />
         ) : (
-          <p className="mt-14 text-center text-3xl font-semibold text-richblack-100">
+          <p className='mt-14 text-center text-3xl font-semibold text-richblack-100'>
             Course not found
           </p>
         )}

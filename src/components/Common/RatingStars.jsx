@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react'
 import {
   TiStarFullOutline,
   TiStarHalfOutline,
   TiStarOutline,
-} from "react-icons/ti"
+} from 'react-icons/ti'
 
 function RatingStars({ Review_Count, Star_Size }) {
   const [starCount, SetStarCount] = useState({
@@ -21,7 +21,7 @@ function RatingStars({ Review_Count, Star_Size }) {
     })
   }, [Review_Count])
   return (
-    <div className="flex gap-1 text-yellow-100">
+    <div className='flex gap-1 text-yellow-100'>
       {[...new Array(starCount.full)].map((_, i) => {
         return <TiStarFullOutline key={i} size={Star_Size || 20} />
       })}
